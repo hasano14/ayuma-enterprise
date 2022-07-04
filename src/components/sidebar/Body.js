@@ -12,7 +12,7 @@ const Body = () => {
     setShowSidebar(false);
   });
   return (
-    <div className="top-0 left-0 text-text2Dark fixed h-full sideBar z-50">
+    <div className="top-0 left-0 text-text2Dark fixed h-full sideBar z-50 noselect">
       <button
         className="left-2 top-0 mt-2 md:mt-5 flex flex-col h-12 w-12 rounded justify-center items-center group"
         onClick={() => setShowSidebar(!showSidebar)}
@@ -40,7 +40,7 @@ const Body = () => {
         </div>
       </button>
       <div
-        className={`top-0 left-0 w-1/2 md:w-1/4 bg-text2Light pl-6 bg-teal-900 pr-12 text-white fixed h-full z-40 transition-all duration-300 ${
+        className={`noselect top-0 left-0 pt-32 w-1/2 md:max-w-fit bg-text2Light pl-6 bg-teal-900 pr-12 text-white fixed h-full z-40 transition-all duration-300 ${
           showSidebar ? "translate-x-0 " : "-translate-x-full"
         }`}
       >
