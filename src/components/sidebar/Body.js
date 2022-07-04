@@ -1,33 +1,53 @@
-import React from 'react'
+import React from "react";
 
 const Body = () => {
-  const [isOpen, setIsOpen] = React.useState(true)
+  const [showSidebar, setShowSidebar] = React.useState(true);
+  const focusedElement = document.querySelector(".sideBar")
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
 
+  document.addEventListener("mousedown", (e) => {
+    if (focusedElement.contains(e.target)) {
+      return;
+    }
+    setShowSidebar(false);
+  });
   return (
-    <>
-      {
-        isOpen ? (
-          <button class="flex text-4xl text-white font-semibold items-center justify-center cursor-pointer fixed left-10 z-50 top-3" onClick={() => setIsOpen(!isOpen)}> x </button>
-        ) : (
-          <svg
-            onClick={() => setIsOpen(!isOpen)}
-            className="fixed z-30 flex items-center cursor-pointer left-10 top-6"
-            fill="#2563EB"
-            viewBox="0 0 100 80"
-            width="30"
-            height="30"
-          >
-            <rect width="70" height="10"></rect>
-            <rect y="30" width="70" height="10"></rect>
-            <rect y="60" width="70" height="10"></rect>
-          </svg>
-        )
-      }
-      <div className={`top-0 left-0 w-[20vw] bg-slate-900 m-auto text-center text-white fixed h-full duration-300 ease-in-out ${isOpen ? '-translate-x-0' : '-translate-x-full'} z-40`}>
-        <h2 class="mt-20 text-4xl font-semibold text-white">Sidebar</h2>
+    <div className="top-0 left-0 text-text2Dark fixed h-full sideBar z-50">
+      <button
+        className="left-2 top-0 mt-2 md:mt-5 flex flex-col h-12 w-12 rounded justify-center items-center group"
+        onClick={() => setShowSidebar(!showSidebar)}
+      >
+        <div className="z-50">
+          <div
+            className={`${genericHamburgerLine} ${
+              showSidebar
+                ? "rotate-45 translate-y-2 opacity-50 group-hover:opacity-100"
+                : "opacity-50 group-hover:opacity-100"
+            }`}
+          ></div>
+          <div
+            className={`${genericHamburgerLine} ${
+              showSidebar ? "opacity-0" : "opacity-50 group-hover:opacity-100"
+            }`}
+          ></div>
+          <div
+            className={`${genericHamburgerLine} ${
+              showSidebar
+                ? "-rotate-45 -translate-y-2 opacity-50 group-hover:opacity-100"
+                : "opacity-50 group-hover:opacity-100"
+            }`}
+          ></div>
+        </div>
+      </button>
+      <div
+        className={`top-0 left-0 w-1/2 md:w-1/4 bg-text2Light pl-6 bg-teal-900 pr-12 text-white fixed h-full z-40 transition-all duration-300 ${
+          showSidebar ? "translate-x-0 " : "-translate-x-full"
+        }`}
+      >
+        Hello
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default Body
+export default Body;
