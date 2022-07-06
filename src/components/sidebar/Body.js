@@ -1,52 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 
 const Body = () => {
-  const [showSidebar, setShowSidebar] = React.useState(true);
-  const focusedElement = document.querySelector(".sideBar")
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
+  const [currentRoute, setCurrentRoute] = useState("");
 
-  document.addEventListener("mousedown", (e) => {
-    if (focusedElement.contains(e.target)) {
-      return;
-    }
-    setShowSidebar(false);
-  });
   return (
-    <div className="top-0 left-0 text-text2Dark fixed h-full sideBar z-50 noselect">
-      <button
-        className="left-2 top-0 mt-2 md:mt-5 flex flex-col h-12 w-12 rounded justify-center items-center group"
-        onClick={() => setShowSidebar(!showSidebar)}
-      >
-        <div className="z-50">
-          <div
-            className={`${genericHamburgerLine} ${
-              showSidebar
-                ? "rotate-45 translate-y-2 opacity-50 group-hover:opacity-100"
-                : "opacity-50 group-hover:opacity-100"
-            }`}
-          ></div>
-          <div
-            className={`${genericHamburgerLine} ${
-              showSidebar ? "opacity-0" : "opacity-50 group-hover:opacity-100"
-            }`}
-          ></div>
-          <div
-            className={`${genericHamburgerLine} ${
-              showSidebar
-                ? "-rotate-45 -translate-y-2 opacity-50 group-hover:opacity-100"
-                : "opacity-50 group-hover:opacity-100"
-            }`}
-          ></div>
-        </div>
-      </button>
-      <div
-        className={`noselect top-0 left-0 pt-32 w-1/2 md:max-w-fit bg-text2Light pl-6 bg-teal-900 pr-12 text-white fixed h-full z-40 transition-all duration-300 ${
-          showSidebar ? "translate-x-0 " : "-translate-x-full"
-        }`}
-      >
-        Hello
-      </div>
-    </div>
+    <nav
+      className={`fixed noselect flex flex-col top-0 left-0 max-w-fit bg-teal-900 justify-between rounded-r-3xl text-white h-screen z-40 transition-all duration-300 items-center border-black`}
+    >
+      <h1 className="flex text-3xl align-top">Hello</h1>
+      <ul class="flex flex-col items-center align-middle">
+        <li className="relative group cursor-pointer" onClick={() => setCurrentRoute("Invoice")}>
+          <ReceiptLongIcon
+            className="ml-3 mr-5 my-2 inline text-gray-400 hover:text-gray-800 transition-colors duration-150"
+            sx={{ fontSize: 40 }}
+          />
+          <span className="absolute text-black w-auto ml-2 items-center min-w-max text-xl hidden pt-2 group-hover:inline transition-all ease-in-out duration-200">
+            Invoice
+          </span>
+        </li>
+        <li className="relative group cursor-pointer" onClick={() => setCurrentRoute("Billing")}>
+          <AccountBalanceIcon
+            className="ml-3 mr-5 my-2 inline text-gray-400 hover:text-gray-800 transition-colors duration-150"
+            sx={{ fontSize: 40 }}
+          />
+          <span className="absolute w-auto ml-2 items-center min-w-max text-xl hidden pt-2 group-hover:inline text-black transition-all ease-in-out duration-200">
+            Billing
+          </span>
+        </li>
+      </ul>
+      <div className="align-bottom"></div>
+    </nav>
   );
 };
 
