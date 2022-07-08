@@ -1,5 +1,5 @@
 import React from "react";
-import Homepage from "./components/homepage/Body.js";
+import Homepage from "./components/invoice-table/Body.js";
 import Sidebar from "./components/sidebar/Body";
 
 const App = () => {

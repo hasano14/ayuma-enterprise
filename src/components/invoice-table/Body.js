@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import SortIcon from "@mui/icons-material/Sort";
 
 const useSortableData = (items, config = null) => {
@@ -46,7 +46,7 @@ const CompanyTable = (props) => {
 
   return (
     <>
-      <div className="container m-auto">
+      <div className="flex flex-col container m-auto border rounded-lg shadow-lg bg-white px-2">
         <h1 className="text-center text-2xl font-medium my-2">Invoices</h1>
         <table className="mx-auto table-auto min-w-full">
           <thead className="border-b-2">
@@ -57,7 +57,7 @@ const CompanyTable = (props) => {
                   onClick={() => requestSort("Company")}
                   className={`${getClassNamesFor(
                     "Company"
-                  )}  items-center  inline-block`}
+                  )}  items-center inline-block`}
                 >
                   <SortIcon
                     className="inline text-gray-700 hover:text-gray-900"
