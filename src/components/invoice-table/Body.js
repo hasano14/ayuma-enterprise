@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import SortIcon from "@mui/icons-material/Sort";
+import CardLayout from "../card/CardLayout";
+import CardHeader from "../card/CardHeader";
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = useState(config);
@@ -45,9 +47,8 @@ const CompanyTable = (props) => {
   };
 
   return (
-    <>
-      <div className="flex flex-col container m-auto border rounded-lg shadow-lg bg-white px-2">
-        <h1 className="text-center text-2xl font-medium my-2">Invoices</h1>
+    <CardLayout>
+        <CardHeader>Invoices</CardHeader>
         <table className="mx-auto table-auto min-w-full">
           <thead className="border-b-2">
             <tr className="">
@@ -124,8 +125,7 @@ const CompanyTable = (props) => {
             ))}
           </tbody>
         </table>
-      </div>
-    </>
+    </CardLayout>
   );
 };
 
