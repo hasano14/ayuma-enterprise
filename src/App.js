@@ -1,10 +1,10 @@
 import React from "react";
-import Homepage from "./components/invoice-table/Body.js";
-import Sidebar from "./components/sidebar/Body";
+import Homepage from "./components/Home.js";
+import Sidebar from "./components/sidebar/Sidebar";
 
 const App = () => {
   return (
-    <div class="flex flex-col flex-auto bg-offwhite min-h-screen">
+    <div class="flex flex-row bg-offwhite min-h-screen transition-all">
       <Sidebar />
       <Homepage />
     </div>
