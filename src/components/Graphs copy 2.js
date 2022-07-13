@@ -5,8 +5,8 @@ import CardHeader from "./card/CardHeader";
 
 const Graphs = () => {
   return (
-    <CardHalfLayout position="left">
-      <CardHeader>Graphs 1</CardHeader>
+    <CardHalfLayout position="right">
+      <CardHeader>Graphs Example 2</CardHeader>
       <CardHalfLayoutContent>
         <div>This is an example of a graph</div>
       </CardHalfLayoutContent>

@@ -4,7 +4,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 
 const App = () => {
   return (
-    <div class="flex flex-row bg-offwhite min-h-screen transition-all">
+    <div class="bg-offwhite transition-all">
       <Sidebar />
       <Homepage />
     </div>

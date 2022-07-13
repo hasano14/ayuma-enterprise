@@ -11,7 +11,7 @@ const Body = ({showState}) => {
     <aside
       className={`${
         showSidebar ? "w-1/2 md:w-1/6 translate-x-0" : "w-12"
-      } bg-white border-r-2 border-gray-300 ease-in-out transition duration-300`}
+      } bg-white border-r-2 min-h-screen fixed border-gray-300 ease-in-out transition duration-300`}
     >
       <button
         className="left-2 top-0 mt-2 flex flex-col h-12 w-12 rounded justify-center items-center group my-10"
